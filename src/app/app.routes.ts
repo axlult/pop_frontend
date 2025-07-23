@@ -80,19 +80,6 @@ export const routes: Routes = [
           name: 'profile',
           showInSidebar: false
         }
-      },
-      {
-        path: 'games',
-        component: GamesComponent,
-        data: { 
-          authorities: [
-            IRoleType.admin, 
-            IRoleType.superAdmin,
-            IRoleType.user,
-          ],
-          name: 'games',
-          showInSidebar: true
-        }
       }
     ],
   },

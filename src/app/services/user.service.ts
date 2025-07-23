@@ -23,17 +23,23 @@ export class UserService extends BaseService<IUser> {
       }
     });
   }
-  saveUserSignal (user: IUser): Observable<any>{
-    return this.add(user).pipe(
-      tap((response: any) => {
-        this.userListSignal.update( users => [response, ...users]);
-      }),
-      catchError(error => {
-        console.error('Error saving user', error);
-        return throwError(error);
-      })
-    );
-  }
+ saveUserSignal(user: IUser): Observable<any> {
+  // Create a modified user object with the role assignment
+  const userToSave = { 
+    ...user, 
+    role: { id: 102 } // Replace 1 with your actual USER role ID
+  };
+
+  return this.add(userToSave).pipe(
+    tap((response: any) => {
+      this.userListSignal.update(users => [response, ...users]);
+    }),
+    catchError(error => {
+      console.error('Error saving user', error);
+      return throwError(error);
+    })
+  );
+}
   updateUserSignal (user: IUser): Observable<any>{
     return this.edit(user.id, user).pipe(
       tap((response: any) => {
