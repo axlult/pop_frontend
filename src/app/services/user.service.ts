@@ -37,8 +37,8 @@ export class UserService extends BaseService<IUser> {
     catchError(error => {
       console.error('Error saving user', error);
       return throwError(error);
-    })
-  );
+    })
+  );
 }
   updateUserSignal (user: IUser): Observable<any>{
     return this.edit(user.id, user).pipe(

@@ -17,7 +17,7 @@ export interface IUser {
   createdAt?: string;
   updatedAt?: string;
   authorities?: IAuthority[];
-  role?: { id: number }; // Add this property
+  role?: IRole
 }
 
 export interface IAuthority {
