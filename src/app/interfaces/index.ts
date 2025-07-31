@@ -69,3 +69,31 @@ export interface IAsistencia {
     lastname?: string;
   };
 }
+
+export interface IMembresia {
+  id?: number;
+  tipo?: string;
+  inicio?: string;
+  vencimiento?: string;
+  estado?: string;
+  user?: {  // Nueva propiedad para la relación con usuario
+    id: number;
+    name?: string;
+    lastname?: string;
+  };
+}
+
+export interface IPago {
+  id?: number;
+  monto?: number;
+  fecha?: string;
+  metodo?: string;
+  membresia?: {
+    id: number;
+    tipo?: string;
+    user?: {  // Anidar información de usuario
+      id: number;
+      name?: string;
+    }
+  };
+}

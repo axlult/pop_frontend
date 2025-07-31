@@ -1,0 +1,48 @@
+<form (ngSubmit)="onSubmit()" class="p-3">
+  <div class="mb-3">
+    <label for="tipo" class="form-label">Tipo de Membresía</label>
+    <input type="text" class="form-control" id="tipo" 
+           [(ngModel)]="membresia.tipo" name="tipo" required>
+  </div>
+  
+  <div class="mb-3">
+    <label for="inicio" class="form-label">Fecha de Inicio</label>
+    <input type="date" class="form-control" id="inicio" 
+           [(ngModel)]="membresia.inicio" name="inicio" required>
+  </div>
+  
+  <div class="mb-3">
+    <label for="vencimiento" class="form-label">Fecha de Vencimiento</label>
+    <input type="date" class="form-control" id="vencimiento" 
+           [(ngModel)]="membresia.vencimiento" name="vencimiento" required>
+  </div>
+  
+  <div class="mb-3">
+    <label for="estado" class="form-label">Estado</label>
+    <select class="form-select" id="estado" [(ngModel)]="membresia.estado" name="estado" required>
+      <option value="Activa">Activa</option>
+      <option value="Cancelada">Cancelada</option>
+      <option value="Vencida">Vencida</option>
+    </select>
+  </div>
+  
+  <!-- Nuevo campo para seleccionar usuario -->
+  <div class="mb-3">
+    <label for="usuario" class="form-label">Usuario</label>
+    <select class="form-select" id="usuario" 
+            [(ngModel)]="membresia.user.id" 
+            name="usuario" required>
+      @if(users.length > 0) {
+        @for (user of users; track user.id) {
+          <option [value]="user.id">
+            {{ user.name }} {{ user.lastname }}
+          </option>
+        }
+      } @else {
+        <option value="" disabled selected>Cargando usuarios...</option>
+      }
+    </select>
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
