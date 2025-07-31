@@ -17,8 +17,9 @@ export interface IUser {
   createdAt?: string;
   updatedAt?: string;
   authorities?: IAuthority[];
-  role?: IRole
+  role?: IRole;
 }
+
 
 export interface IAuthority {
   authority: string;
@@ -57,4 +58,14 @@ export interface IGame {
   description?: string,
   createdAt?: string,
   updatedAt?: string
+}
+export interface IAsistencia {
+  id: number;
+  fecha: string;
+  hora: string;
+  user: {
+    id: number;
+    name?: string;  // Opcional pero el objeto siempre existe
+    lastname?: string;
+  };
 }

@@ -1,0 +1,33 @@
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Hora</th>
+        <th scope="col">Usuario</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (asistencia of asistencias(); track asistencia.id) {
+      <tr>
+        <th scope="row">{{ asistencia.id }}</th>
+        <td>{{ asistencia.fecha | date:'dd/MM/yyyy' }}</td>
+        <td>{{ asistencia.hora }}</td>
+        <td>{{ asistencia.user.name }} {{ asistencia.user.lastname }}</td> <!-- Cambio aquí -->
+        <td>
+          <div class="d-flex gap-2">
+            <button type="button" class="btn btn-warning" (click)="editAsistencia(asistencia)">Editar</button>
+            <button type="button" class="btn btn-danger" (click)="deleteAsistencia(asistencia)">Eliminar</button>
+          </div>
+        </td>
+      </tr>
+      } @empty {
+      <tr>
+        <td colspan="5" class="text-center">No hay asistencias registradas</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,34 @@
+<form (ngSubmit)="onSubmit()" class="p-3">
+  <div class="mb-3">
+    <label for="usuario" class="form-label">Usuario</label>
+    <select class="form-select" id="usuario" 
+            [(ngModel)]="asistencia.user.id" 
+            name="usuario" required>
+      
+      <!-- Mostrar opciones solo si hay usuarios cargados -->
+      @if (users.length > 0) {
+        @for (user of users; track user.id) {
+          <option [value]="user.id">
+            {{ user.name }} {{ user.lastname }}
+          </option>
+        }
+      } @else {
+        <option value="" disabled selected>Cargando usuarios...</option>
+      }
+    </select>
+  </div>
+  
+  <div class="mb-3">
+    <label for="fecha" class="form-label">Fecha</label>
+    <input type="date" class="form-control" id="fecha" 
+           [(ngModel)]="asistencia.fecha" name="fecha" required>
+  </div>
+  
+  <div class="mb-3">
+    <label for="hora" class="form-label">Hora</label>
+    <input type="time" class="form-control" id="hora" 
+           [(ngModel)]="asistencia.hora" name="hora" required>
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
