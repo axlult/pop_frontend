@@ -76,7 +76,7 @@ export interface IMembresia {
   inicio?: string;
   vencimiento?: string;
   estado?: string;
-  user?: {  // Nueva propiedad para la relación con usuario
+  user: {  // Nueva propiedad para la relación con usuario
     id: number;
     name?: string;
     lastname?: string;

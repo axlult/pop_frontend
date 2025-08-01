@@ -5,18 +5,22 @@
   <div>
     @defer {
     <div class="d-flex justify-content-end pb-2">
-      <button type="button" class="btn btn-primary d-flex align-items-center" (click)="formModal.show()">
+      <button type="button" class="btn btn-primary d-flex align-items-center" (click)="openCreateModal()">
         <i class="fa-solid fa-plus white"></i>
         <p class="mb-0">Agregar Membresía</p>
       </button>
     </div>
-    <app-membresia-list></app-membresia-list>
+    <app-membresia-list (editEvent)="openEditModal($event)"></app-membresia-list>
     } @loading (after 100ms; minimum 1s){
     <app-loader></app-loader>
     }
   </div>
 </div>
 
-<app-modal size="lg" #formModal>
-  <app-membresia-form [title]="'Agregar Membresía'"></app-membresia-form>
+<app-modal size="lg" #formModal (onClose)="editingMembresia = null">
+  <app-membresia-form 
+    [title]="formTitle"
+    [membresia]="editingMembresia"
+    (onSubmitEvent)="onMembresiaSaved()">
+  </app-membresia-form>
 </app-modal>

@@ -2,39 +2,38 @@
   <div class="mb-3">
     <label for="tipo" class="form-label">Tipo de Membresía</label>
     <input type="text" class="form-control" id="tipo" 
-           [(ngModel)]="membresia.tipo" name="tipo" required>
+           [(ngModel)]="formData.tipo" name="tipo" required>
   </div>
   
   <div class="mb-3">
     <label for="inicio" class="form-label">Fecha de Inicio</label>
     <input type="date" class="form-control" id="inicio" 
-           [(ngModel)]="membresia.inicio" name="inicio" required>
+           [(ngModel)]="formData.inicio" name="inicio" required>
   </div>
   
   <div class="mb-3">
     <label for="vencimiento" class="form-label">Fecha de Vencimiento</label>
     <input type="date" class="form-control" id="vencimiento" 
-           [(ngModel)]="membresia.vencimiento" name="vencimiento" required>
+           [(ngModel)]="formData.vencimiento" name="vencimiento" required>
   </div>
   
   <div class="mb-3">
     <label for="estado" class="form-label">Estado</label>
-    <select class="form-select" id="estado" [(ngModel)]="membresia.estado" name="estado" required>
+    <select class="form-select" id="estado" [(ngModel)]="formData.estado" name="estado" required>
       <option value="Activa">Activa</option>
       <option value="Cancelada">Cancelada</option>
       <option value="Vencida">Vencida</option>
     </select>
   </div>
   
-  <!-- Nuevo campo para seleccionar usuario -->
   <div class="mb-3">
     <label for="usuario" class="form-label">Usuario</label>
     <select class="form-select" id="usuario" 
-            [(ngModel)]="membresia.user.id" 
+            [(ngModel)]="formData.user.id" 
             name="usuario" required>
       @if(users.length > 0) {
         @for (user of users; track user.id) {
-          <option [value]="user.id">
+          <option [value]="user.id" [selected]="formData.user.id === user.id">
             {{ user.name }} {{ user.lastname }}
           </option>
         }
@@ -44,5 +43,7 @@
     </select>
   </div>
   
-  <button type="submit" class="btn btn-primary">Guardar</button>
+  <button type="submit" class="btn btn-primary">
+    {{ formData.id ? 'Actualizar' : 'Guardar' }}
+  </button>
 </form>
