@@ -13,6 +13,7 @@ import { GuestGuard } from './guards/guest.guard';
 import { IRoleType } from './interfaces';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { GamesComponent } from './pages/games/games.component';
+import { ClaseGimnasioComponent } from './pages/claseGimnasio/claseGimnasio.component';
 
 export const routes: Routes = [
   {
@@ -108,7 +109,20 @@ export const routes: Routes = [
           name: 'profile',
           showInSidebar: false
         }
-      }
+      },
+      {
+        path: 'claseGimnasio',
+        component: ClaseGimnasioComponent,
+        data: { 
+          authorities: [
+            IRoleType.admin, 
+            IRoleType.superAdmin,
+            IRoleType.user
+          ],
+          name: 'Programación de Clases',
+          showInSidebar: true
+        }
+      },
     ],
   },
 ];

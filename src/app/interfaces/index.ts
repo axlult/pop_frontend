@@ -97,3 +97,13 @@ export interface IPago {
     }
   };
 }
+
+export interface IClaseGimnasio {
+  id?: number;
+  nombre: string;
+  horario: string;
+  entrenador: {
+    id: number;
+    username?: string;
+  };
+}
