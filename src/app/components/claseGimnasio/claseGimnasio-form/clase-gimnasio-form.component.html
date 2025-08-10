@@ -1,0 +1,34 @@
+<form (ngSubmit)="onSubmit()" class="p-3">
+  <div class="mb-3">
+    <label for="nombre" class="form-label">Nombre de la Clase</label>
+    <input type="text" class="form-control" id="nombre" 
+           [(ngModel)]="clase.nombre" name="nombre" required>
+  </div>
+  
+  <div class="mb-3">
+    <label for="horario" class="form-label">Horario</label>
+    <input type="text" class="form-control" id="horario" 
+           [(ngModel)]="clase.horario" name="horario" 
+           placeholder="Ej: Lunes y Miércoles 10:00 - 11:00" required>
+  </div>
+  
+  <div class="mb-3">
+    <label for="entrenador" class="form-label">Entrenador</label>
+    <select class="form-select" id="entrenador" 
+            [(ngModel)]="clase.entrenador.id" 
+            name="entrenador" required>
+      
+      @if (entrenadores.length > 0) {
+        @for (entrenador of entrenadores; track entrenador.id) {
+          <option [value]="entrenador.id">
+            {{ entrenador.name }} {{ entrenador.lastname }}
+          </option>
+        }
+      } @else {
+        <option value="" disabled selected>Cargando entrenadores...</option>
+      }
+    </select>
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Guardar</button>
+</form>

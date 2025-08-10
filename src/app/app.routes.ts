@@ -13,7 +13,7 @@ import { GuestGuard } from './guards/guest.guard';
 import { IRoleType } from './interfaces';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { GamesComponent } from './pages/games/games.component';
-import { ClaseGimnasioComponent } from './pages/claseGimnasio/claseGimnasio.component';
+import { ClaseGimnasioComponent } from './pages/claseGimnasio/clase-gimnasio.component';
 
 export const routes: Routes = [
   {

@@ -105,5 +105,9 @@ export interface IClaseGimnasio {
   entrenador: {
     id: number;
     username?: string;
+    name?: string;     
+    lastname?: string; 
+    authorities?: any[];
+    role?: any;
   };
 }
