@@ -12,10 +12,11 @@ import { CommonModule } from '@angular/common';
 })
 export class ClaseGimnasioListComponent implements OnInit {
   private claseService = inject(ClaseGimnasioService);
-  clases = this.claseService.clases$;
+  clases = this.claseService.clases$;  // Signal<IClaseGimnasio[]>
 
   ngOnInit(): void {
     this.claseService.getAllSignal();
+    console.log(this.claseService.getAllSignal());
   }
 
   deleteClase(clase: IClaseGimnasio) {

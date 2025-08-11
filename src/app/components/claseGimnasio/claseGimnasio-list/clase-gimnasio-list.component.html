@@ -17,8 +17,7 @@
         <td>{{ clase.horario }}</td>
         <td>
           @if (clase.entrenador) {
-            <!-- Usar username si name no está disponible -->
-            {{ clase.entrenador.name || clase.entrenador.username || 'Sin nombre' }}
+            {{ clase.entrenador.name }} {{ clase.entrenador.lastname }}
           } @else {
             Sin asignar
           }

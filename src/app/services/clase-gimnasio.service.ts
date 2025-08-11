@@ -16,15 +16,17 @@ export class ClaseGimnasioService extends BaseService<IClaseGimnasio> {
 
   getAllSignal() {
     this.findAll().subscribe({
-      next: (response: IResponse<IClaseGimnasio[]>) => {
-        const clases = response.data || [];
-        this.claseListSignal.set(clases);
+      next: (response: any) => {
+        response.reverse();
+        this.claseListSignal.set(response);
       },
       error: (error: any) => {
         console.error('Error fetching clases', error);
       }
     });
   }
+
+  
 
   saveClaseSignal(clase: IClaseGimnasio): Observable<IResponse<IClaseGimnasio>> {
     // Transformar para enviar al backend
