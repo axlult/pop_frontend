@@ -1,0 +1,12 @@
+<div class="container-fluid">
+  <div>
+    <h2>Reportes</h2>
+  </div>
+  <div>
+    @defer {
+      <app-reporte-list></app-reporte-list>
+    } @loading (after 100ms; minimum 1s){
+      <app-loader></app-loader>
+    }
+  </div>
+</div>

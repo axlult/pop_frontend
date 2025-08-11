@@ -111,3 +111,12 @@ export interface IClaseGimnasio {
     role?: any;
   };
 }
+
+export interface IReporte {
+  id?: number;
+  tipo?: string;
+  fechaGeneracion?: string;
+  contenido?: any; 
+  formato?: string;
+  usuario?: IUser;
+}

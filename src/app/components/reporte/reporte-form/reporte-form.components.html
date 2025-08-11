@@ -1,0 +1,14 @@
+<div class="p-3">
+  <h3>{{ title }}</h3>
+  <form (ngSubmit)="save()">
+    <div class="mb-3">
+      <label>Tipo</label>
+      <input type="text" class="form-control" [(ngModel)]="reporte.tipo" name="tipo" required>
+    </div>
+    <div class="mb-3">
+      <label>Formato</label>
+      <input type="text" class="form-control" [(ngModel)]="reporte.formato" name="formato" required>
+    </div>
+    <button class="btn btn-primary" type="submit">Guardar</button>
+  </form>
+</div>

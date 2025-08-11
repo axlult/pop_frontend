@@ -14,6 +14,7 @@ import { IRoleType } from './interfaces';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { GamesComponent } from './pages/games/games.component';
 import { ClaseGimnasioComponent } from './pages/claseGimnasio/clase-gimnasio.component';
+import { ReporteComponent }  from './pages/reporte/reporte.components';
 
 export const routes: Routes = [
   {
@@ -123,6 +124,19 @@ export const routes: Routes = [
           showInSidebar: true
         }
       },
+      {
+        path: 'reporte',
+        component: ReporteComponent,
+        data: { 
+          authorities: [
+            IRoleType.admin, 
+            IRoleType.superAdmin,
+            IRoleType.user
+          ],
+          name: 'Reportes',
+          showInSidebar: true
+        } 
+      },     
     ],
   },
 ];
