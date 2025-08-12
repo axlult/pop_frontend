@@ -16,7 +16,7 @@
         <td>{{ reporte.tipo }}</td>
         <td>{{ reporte.fechaGeneracion | date:'short' }}</td>
         <td>{{ reporte.formato }}</td>
-        <td>{{ reporte.usuario?.username }}</td>
+        <td>{{ reporte.usuario }}</td>
         <td>
           <button class="btn btn-sm btn-success" (click)="descargar(reporte)">
             <i class="fa fa-download"></i> Descargar
