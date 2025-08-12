@@ -27,7 +27,7 @@ export class UserService extends BaseService<IUser> {
   // Create a modified user object with the role assignment
   const userToSave = { 
     ...user, 
-    role: { id: 102 } // Replace 1 with your actual USER role ID
+    role: { id: 1 } // Replace 1 with your actual USER role ID
   };
 
   return this.add(userToSave).pipe(
