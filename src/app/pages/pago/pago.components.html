@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div>
+    <h2>Pagos</h2>
+  </div>
+  <div>
+    @defer {
+      <div class="d-flex justify-content-end pb-2">
+        <button type="button" class="btn btn-primary d-flex align-items-center" (click)="formModal.show()">
+          <i class="fa-solid fa-plus white"></i>
+          <p class="mb-0">Agregar Pago</p>
+        </button>
+      </div>
+      <app-pago-list></app-pago-list>
+    } @loading (after 100ms; minimum 1s) {
+      <app-loader></app-loader>
+    }
+  </div>
+</div>
+
+<app-modal size="lg" #formModal>
+  <app-pago-form [title]="'Agregar Pago'"></app-pago-form>
+</app-modal>

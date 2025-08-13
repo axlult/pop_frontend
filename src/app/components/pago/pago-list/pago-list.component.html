@@ -1,0 +1,25 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Monto</th>
+      <th>Fecha</th>
+      <th>Método</th>
+      <th>Membresía</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pago of pagos$()">
+      <td>{{ pago.id }}</td>
+      <td>{{ pago.monto | currency }}</td>
+      <td>{{ pago.fecha }}</td>
+      <td>{{ pago.metodo }}</td>
+      <td>{{ pago.membresia?.id }}</td>
+      <td>
+        <button class="btn btn-warning btn-sm">Editar</button>
+        <button class="btn btn-danger btn-sm" (click)="deletePago(pago)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

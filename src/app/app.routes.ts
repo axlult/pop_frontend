@@ -14,7 +14,8 @@ import { IRoleType } from './interfaces';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { GamesComponent } from './pages/games/games.component';
 import { ClaseGimnasioComponent } from './pages/claseGimnasio/clase-gimnasio.component';
-import { ReporteComponent }  from './pages/reporte/reporte.components';
+import { ReporteComponent }  from './pages/reporte/reporte.component';
+import { PagoComponent } from './pages/pago/pago.component';  
 
 export const routes: Routes = [
   {
@@ -136,6 +137,19 @@ export const routes: Routes = [
           name: 'Reportes',
           showInSidebar: true
         } 
+      },
+      {
+        path: 'pagos',
+        component: PagoComponent,
+        data: { 
+          authorities: [
+            IRoleType.admin, 
+            IRoleType.superAdmin,
+            IRoleType.user
+          ],
+          name: 'Pagos',
+          showInSidebar: true
+        }
       },     
     ],
   },

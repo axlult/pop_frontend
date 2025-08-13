@@ -1,0 +1,24 @@
+<div class="modal-header">
+  <h5 class="modal-title">{{ title }}</h5>
+</div>
+<div class="modal-body">
+  <form (ngSubmit)="save()">
+    <div class="mb-3">
+      <label>Monto</label>
+      <input type="number" [(ngModel)]="pago.monto" name="monto" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label>Fecha</label>
+      <input type="date" [(ngModel)]="pago.fecha" name="fecha" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label>Método</label>
+      <input type="text" [(ngModel)]="pago.metodo" name="metodo" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label>ID Membresía</label>
+      <input type="number"  [(ngModel)]="pago.membresia!.id"   name="membresiaId"  class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+</div>
