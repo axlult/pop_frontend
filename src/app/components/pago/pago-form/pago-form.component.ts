@@ -18,22 +18,21 @@ export class PagoFormComponent {
     monto: 0,
     fecha: '',
     metodo: '',
-    membresia: {  // Inicializado explícitamente
-      id: 0,
-      user: { id: 0 }  // Si `user` es requerido en tu lógica
-    }
+     membresiaId: 0 ,
   };
 
   constructor(private pagoService: PagoService) {}
 
   save() {
-    // Verificación adicional (opcional)
-    if (!this.pago.membresia) {
-      this.pago.membresia = { id: 0 }; // Fallback seguro
+    // Validar que tenemos un ID de membresía
+    if (!this.pago.membresiaId) {
+      alert('Debe seleccionar una membresía');
+      return;
     }
 
     this.pagoService.savePagoSignal(this.pago).subscribe(() => {
       alert('Pago guardado correctamente');
     });
   }
+
 }

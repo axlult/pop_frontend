@@ -26,6 +26,26 @@ export class ReporteService extends BaseService<IReporte> {
     });
   }
 
+  crearReporteAutomatico(tipo: string, entidadId: number): Observable<IReporte> {
+    const reporte: IReporte = {
+      tipo: tipo,
+      fechaGeneracion: new Date().toISOString(),
+      formato: 'SISTEMA',
+      usuario: { id: 1 }, // Reemplazar con ID del usuario actual
+      entidadId: entidadId
+    };
+    
+    return this.add(reporte).pipe(
+      tap((response: any) => {
+        this.reporteListSignal.update(reportes => [response, ...reportes]);
+      }),
+      catchError(error => {
+        console.error('Error saving reporte', error);
+        return throwError(error);
+      })
+    );
+  }
+  
   saveReporteSignal(reporte: IReporte): Observable<any> {
     return this.add(reporte).pipe(
       tap((response: any) => {
@@ -63,4 +83,6 @@ export class ReporteService extends BaseService<IReporte> {
       })
     );
   }
+
+  
 }

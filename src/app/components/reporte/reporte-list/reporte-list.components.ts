@@ -23,13 +23,5 @@ export class ReporteListComponent implements OnInit {
   this.reporteService.getAllSignal();
 }
 
-  descargar(reporte: IReporte) {
-    const blob = new Blob([reporte.contenido], { type: `application/${(reporte.formato ?? 'octet-stream').toLowerCase()}` });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `${reporte.tipo}.${(reporte.formato ?? 'octet-stream').toLowerCase()}`;
-    a.click();
-    window.URL.revokeObjectURL(url);
-  }
+
 }

@@ -15,9 +15,9 @@
       <td>{{ pago.monto | currency }}</td>
       <td>{{ pago.fecha }}</td>
       <td>{{ pago.metodo }}</td>
-      <td>{{ pago.membresia?.id }}</td>
+      <td>{{ pago.membresiaId }}</td>
       <td>
-        <button class="btn btn-warning btn-sm">Editar</button>
+        
         <button class="btn btn-danger btn-sm" (click)="deletePago(pago)">Eliminar</button>
       </td>
     </tr>

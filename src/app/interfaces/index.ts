@@ -85,17 +85,10 @@ export interface IMembresia {
 
 export interface IPago {
   id?: number;
-  monto?: number;
-  fecha?: string;
-  metodo?: string;
-  membresia?: {
-    id: number;
-    tipo?: string;
-    user?: {  // Anidar información de usuario
-      id: number;
-      name?: string;
-    }
-  };
+  monto: number;
+  fecha: string;  // Asegúrate que coincida con el formato ISO (YYYY-MM-DD)
+  metodo: string;
+  membresiaId?: number; 
 }
 
 export interface IClaseGimnasio {
@@ -114,9 +107,11 @@ export interface IClaseGimnasio {
 
 export interface IReporte {
   id?: number;
-  tipo?: string;
-  fechaGeneracion?: string;
-  contenido?: any; 
-  formato?: string;
-  usuario?: IUser;
+  tipo: string;
+  fechaGeneracion: string;
+  formato: string;
+  usuario?: {
+    id: number;
+  };
+  entidadId?: number; // Nuevo campo para referenciar la entidad
 }

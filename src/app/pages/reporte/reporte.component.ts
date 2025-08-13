@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ReporteListComponent } from '../../components/reporte/reporte-list/reporte-list.components';
-import { ReporteFormComponent } from '../../components/reporte/reporte-form/reporte-form.component';
+
 import { LoaderComponent } from '../../components/loader/loader.component';
 import { ModalComponent } from '../../components/modal/modal.component';
 
@@ -9,7 +9,7 @@ import { ModalComponent } from '../../components/modal/modal.component';
   standalone: true,
   imports: [
     ReporteListComponent,
-    ReporteFormComponent,
+ 
     LoaderComponent,
     ModalComponent
   ],

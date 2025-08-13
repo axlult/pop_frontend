@@ -126,19 +126,6 @@ export const routes: Routes = [
         }
       },
       {
-        path: 'reporte',
-        component: ReporteComponent,
-        data: { 
-          authorities: [
-            IRoleType.admin, 
-            IRoleType.superAdmin,
-            IRoleType.user
-          ],
-          name: 'Reportes',
-          showInSidebar: true
-        } 
-      },
-      {
         path: 'pagos',
         component: PagoComponent,
         data: { 
